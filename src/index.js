@@ -5,8 +5,8 @@ import './css/styles.css';
 import Currency from './js/currency.js';
 
 function getElements(response) {
-  if (response) {
- 
+  if (response.result === "success") {
+    
   } else {
 
   }

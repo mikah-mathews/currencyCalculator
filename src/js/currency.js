@@ -11,7 +11,8 @@ export default class Currency {
     }
   }
 
-  currencyConversion(wantedConversion, data) {
-    return data.conversion_rates.wantedConversion;
+  currencyConversion(usd, currency) {
+    let conversionRate = usd*currency;
+    return conversionRate;
   }
 }
