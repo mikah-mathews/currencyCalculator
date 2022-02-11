@@ -13,6 +13,6 @@ export default class Currency {
 
   currencyConversion(usd, currency) {
     let conversionRate = usd*currency;
-    return conversionRate;
+    return conversionRate; 
   }
 }
