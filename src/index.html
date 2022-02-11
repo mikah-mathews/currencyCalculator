@@ -12,13 +12,33 @@
           <input type="number" class="form-control" id="number-input">
         </div>
         <div class="form-group">
+          <h1>Pick a currency to convert to: </h1>
           <div class="form-check">
-            <h1>Pick a currency to convert to: </h1>
+            <input type="radio" name="currency" value="EUR" id="euro">
             <label for="currencyInput">EURO</label>
-            <input type="radio" name="currency" value="EUR" 
+          </div>
+          <div class="form-check">            
+            <input type="radio" name="currency" value="CZK" id="koruna">
+            <label for="currencyInput">CZECH KORUNA</label>
+          </div>
+          <div class="form-check">            
+            <input type="radio" name="currency" value="JPY" id="yen">
+            <label for="currencyInput">JAPANESE YEN</label>
+          </div>
+          <div class="form-check">            
+            <input type="radio" name="currency" value="MXN" id="peso">
+            <label for="currencyInput">MEXICAN PESO</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="currency" value="RUB" id="ruble">
+            <label for="currencyInput">RUSSIAN RUBLE</label>
           </div>
         </div>
+        <button type="submit">Get Amount</button>
       </form>
+      <div class="result">
+        <h4>$<span id="usdAmount"></span> is worth <span id="chosenCurrency"></span></h4>
+      </div>
     </div>
   </body>
 </html>
