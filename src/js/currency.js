@@ -1,13 +1,13 @@
 export default class Currency {
   static async getCurrencyData() {
     try {
-      let response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
+      const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
       if (!response.ok) {
-        throw Error(response['error-type']);
+        throw Error(response.statusText);
       }
       return response.json();
     } catch(error) {
-      return error.message;
+      return error['error-type'];
     }
   }
 
