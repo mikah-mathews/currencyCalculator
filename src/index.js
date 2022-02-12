@@ -7,9 +7,11 @@ import Currency from './js/currency.js';
 function getElements(response, amount, currency) {
   if (response.result === "success") {
     let convertTo = response.conversion_rates[currency];
-    return Currency.currencyConversion(amount, convertTo);
+    let convertedAmount = Currency.currencyConversion(amount, convertTo);
+    $('#chosenCurrency').text(`${convertedAmount}`);
   } else {
     $('.error').text(`There was an error: ${response}`);
+    alert(response);
   }
 }
 
@@ -19,11 +21,11 @@ async function callCurrencyApi(amount, currency) {
 }
 
 
-$(function() {
-  $('#submit').on('click', function() {
+$(document).ready( function() {
+  $('#submit').on('click', function() {    
+    event.preventDefault();
     let conversionAmount = $('#conversion-amount').val();
     let conversionCurrency = $("input:radio[name=currency]:checked").val();
-    let convertedAmount = (conversionAmount, conversionCurrency);
-    alert(`${conversionAmount} USD is equal to ${convertedAmount} ${conversionCurrency.attr('id')}`)
+    callCurrencyApi(conversionAmount, conversionCurrency);
   });
 });
