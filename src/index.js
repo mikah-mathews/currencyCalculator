@@ -11,7 +11,6 @@ function getElements(response, amount, currency) {
     $('#chosenCurrency').text(`${convertedAmount}`);
   } else {
     $('.error').text(`There was an error: ${response}`);
-    alert(response);
   }
 }
 
@@ -26,6 +25,7 @@ $(document).ready( function() {
     event.preventDefault();
     let conversionAmount = $('#conversion-amount').val();
     let conversionCurrency = $("input:radio[name=currency]:checked").val();
+    $('#usdAmount').text(`${conversionAmount}`);
     callCurrencyApi(conversionAmount, conversionCurrency);
   });
 });
